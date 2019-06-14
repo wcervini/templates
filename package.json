@@ -23,5 +23,7 @@
     "gulp-sass": "^4.0.2",
     "jquery": "^3.4.1"
   },
-  "dependencies": {}
+  "dependencies": {
+    "gridlex": "^2.7.1"
+  }
 }

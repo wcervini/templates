@@ -1,0 +1,19 @@
+//@import "./utils/reset";
+@import "./utils/variables";
+
+$column1: 1
+$column2: 2
+$row1: 1
+$row2: 2
+$row3: 3
+$env: deb
+
+=borde($pixel)
+  border: $pixel dashed red
+
+.container
+  display: grid
+  grid-template-columns: $column1
+  grid-template-rows: $row1
+  @if $env == dev
+    +borde(1px)

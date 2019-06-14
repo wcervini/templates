@@ -4,10 +4,10 @@ const sass        = require('gulp-sass');
 const reload      = browserSync.reload;
 const rm          = require('gulp-rm');
 const src = {
-    scss: './src/scss/**/*.scss',
+    scss: './src/scss/**/*.sass',
     css:  './css',
     html: './*.html',
-    src:  './src'
+    src:  './'
 };
 
 
