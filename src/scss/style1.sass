@@ -1,0 +1,42 @@
+@import "./utils/grid.scss";
+
+$grid: (
+    cols: repeat(5, 1fr) 2fr,
+    gap: 10px
+);        
+
+<span>//  create grid</span>  
+.grid {
+    @include grid($grid);
+}
+
+
+<span>//  set column, row and spans</span>   
+.cell {
+    @include grid-column(1, 2); <span>// column, col-span</span>  
+    @include grid-row(1, 2);    <span>// row, row-span</span>      
+}
+
+<span>//  set column, row and spans in one include</span>     
+.cell {
+    @include grid-cell(1, 2, 1, 2); // column, col-span, row, row-span    
+}
+
+<span>//   set column, row and spans using area keys
+//   keys: (column, col-span, row, row-span)</span>  
+$grid-areas: (
+    area-51  : (1, 2, 1, 2), 
+    studio-54: (3, 2, 1, 2) 
+);    
+
+
+.cell {
+    @include grid-area(area-51);
+}
+.cell {
+    @include grid-area(studio-54);
+}
+
+
+    </pre>
+</div>
