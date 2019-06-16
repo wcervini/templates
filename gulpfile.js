@@ -4,7 +4,7 @@ const sass        = require('gulp-sass');
 const reload      = browserSync.reload;
 const rm          = require('gulp-rm');
 const src = {
-    scss: './src/scss/**/*.sass',
+    sass: './src/scss/style.sass',
     css:  './css',
     html: './*.html',
     src:  './'
@@ -13,7 +13,7 @@ const src = {
 
 // Compile sass into CSS
 function style(){
-    return gulp.src(src.scss)
+    return gulp.src(src.sass)
         .pipe(sass().on('error', sass.logError))
         .pipe(gulp.dest(src.css))
         .pipe(reload({stream: true}));
@@ -25,11 +25,15 @@ function watch(){
             baseDir: src
         } 
     });
-    gulp.watch(src.scss,style);
+    gulp.watch(src.sass,style);
     gulp.watch(src.html).on("change",reload);    
 }
 
+function sasswatch(){
+    gulp.watch(src.sass,style);
+}
 
 exports.sass= style;
 exports.watch= watch;
+exports.watchsass= sasswatch;
 exports.default=watch;

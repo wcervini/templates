@@ -1,5 +1,23 @@
-//@import "./utils/reset";
-@import "./utils/variables";
+//debe estar declarada en comillas dobles para ser considerada
+@charset "utf-8"
+
+//los string no necesitan comillas
+// ;as variables comienzan con $
+$lista: (Arial,San-Serif,Helvetica)
+$lista: append($lista,Demo)
+
+//esto es un mapa y debe usarse asi
+$bp: ( small: 400px, medium: 600px,large: 900px)
+
+=respond-to($parameter)
+  $raw: map-get($bp,$parameter)
+  display: $raw
+  
+// Esto es un mixin y comienza con = seguido de la clabe
+=grid
+  display: grid
+  grid-gap: 10px
+  +respond-to(small)
 
 
 =borde
@@ -8,52 +26,56 @@
 =hf
   display: grid
   grid-gap: 10px
+
+body
+  +grid
+  margin: 0
   padding: 10px
+  font-family: $lista
 
-main
-  display: grid
-  border: 2px dashed red
-  grid-template-columns: 1fr 3fr
-  background-color: #7a7a7a
-  grid-gap: 10px
-  height: 100vh
-  grid-template-areas: 'header header' "aside article" "footer footer"
-  grid-template-columns: 20% 2fr
-  grid-template-rows: 10% 2fr 10%
+// main
+//   display: grid
+//   border: 2px dashed red
+//   grid-template-columns: 1fr 3fr
+//   background-color: #7a7a7a
+//   grid-gap: 10px
+//   height: 100vh
+//   grid-template-areas: 'header header' "aside article" "footer footer"
+//   grid-template-columns: 20% 2fr
+//   grid-template-rows: 10% 2fr 10%
 
-@media handheld
-  main
-    grid-template-areas: 'header' "article" "footer"
-    grid-template-columns: 1fr
-    grid-template-rows: 1fr
+// @media handheld
+//   main
+//     grid-template-areas: 'header' "article" "footer"
+//     grid-template-columns: 1fr
+//     grid-template-rows: 1fr
 
-@media(min-width: 500px)
-  main
-    grid-template-areas: 'header' "article" "footer"
-    grid-template-columns: 1fr
-    grid-template-rows: 1fr
+// @media(min-width: 500px)
+//   main
+//     grid-template-areas: 'header' "article" "footer"
+//     grid-template-columns: 1fr
+//     grid-template-rows: 1fr
 
-@media(min-width: 900px)
-  main
-    grid-template-areas: 'header header' "aside article" "footer footer"
-    grid-template-columns: 20% 2fr
-    grid-template-rows: 10% 2fr 10%
+// @media(min-width: 900px)
+//   main
+//     grid-template-areas: 'header header' "aside article" "footer footer"
+//     grid-template-columns: 20% 2fr
+//     grid-template-rows: 10% 2fr 10%
 
+// header
+//   grid-area: header
+//   +hf
 
-
-header
-  grid-area: header
-  +hf
-
-footer
-  +hf
-  grid-area: footer
+// footer
+//   +hf
+//   grid-area: footer
     
-aside
-  +hf
-  background-color: $indigo
+// aside
+//   +hf
+//   background-color: $indigo
   
-article
-  +hf
-  grid-area: article
-  background-color: $teal
+// article
+//   +hf
+//   grid-area: article
+//   background-color: $teal
+
