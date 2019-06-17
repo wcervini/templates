@@ -1,0 +1,104 @@
+//debe estar declarada en comillas dobles para ser considerada
+@charset "utf-8";
+@import "src/scss/utils/reset.scss";
+
+//los string no necesitan comillas
+// as variables comienzan con $
+$card-title-bgcolor: orange;
+$card-title-color: BlanchedAlmond;	
+$card-footer-bgcolor: Dimgray;
+$card-footer-color: white;
+
+  
+// Esto es un mixin y comienza con = seguido de la clabe
+@mixin grid{
+  display: grid;
+  grid-gap: 10px;
+  width: 100vh;
+
+}
+
+@mixin borde{
+  border: 1px dashed red;
+}
+
+*{
+  margin: 0,auto;
+}
+
+
+.text-left{
+  text-align: left;
+}
+
+.text-center{
+  text-align: center;
+}
+
+.text-right{
+  text-align: right;
+}
+
+
+.card{
+  display: flex;
+  widows: 200px;
+  > hr {
+    margin-right: 0;
+    margin-left: 0;
+  }
+}
+
+.card-item{
+  display: grid;
+  width: 20em;
+  @include borde();
+}
+
+.card-price{
+  background: orange;
+  p{
+    width: 30%;
+    height: 50px;
+    color: whitesmoke; 
+    border-radius: 100% 100%;
+    border: 1px solid white;
+    text-align: center;
+    justify-self: center;
+  }
+}
+
+.carg-image{
+  margin: 0;
+  padding: 0;
+}
+
+.card-title{
+  font-size: 14px;
+  background-color: $card-title-bgcolor;
+  color: $card-title-color;
+  
+  
+  h1{
+    font-size: 30px;
+    font-weight: 200;
+    font-family: 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  }
+}
+
+.card-text{
+  background: orange;
+  padding-left: 1em;
+  padding-right: 1em;
+  hr{
+    
+    color: $card-footer-bgcolor;
+  }
+}
+
+.card-footer{
+  background-color: orange;
+  color: $card-footer-color;
+  height: 30px;
+  @include borde;
+}
